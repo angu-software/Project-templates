@@ -40,10 +40,10 @@ SWIFT_LINT_VERSION=0.57.0
 SWIFT_LINT_ARCHIVE=portable_swiftlint.zip
 SWIFT_LINT_URL="https://github.com/realm/SwiftLint/releases/download/${SWIFT_LINT_VERSION}/${SWIFT_LINT_ARCHIVE}"
 
-SHELL_SPEC_NAME=shellspec
-SHELL_SPEC_VERSION=0.28.1
-SHELL_SPEC_ARCHIVE=shellspec-dist.tar.gz
-SHELL_SPEC_URL="https://github.com/shellspec/shellspec/releases/download/${SHELL_SPEC_VERSION}/${SHELL_SPEC_ARCHIVE}"
+#SHELL_SPEC_NAME=shellspec
+#SHELL_SPEC_VERSION=0.28.1
+#SHELL_SPEC_ARCHIVE=shellspec-dist.tar.gz
+#SHELL_SPEC_URL="https://github.com/shellspec/shellspec/releases/download/${SHELL_SPEC_VERSION}/${SHELL_SPEC_ARCHIVE}"
 
 # -- Install SwiftLint --
 
