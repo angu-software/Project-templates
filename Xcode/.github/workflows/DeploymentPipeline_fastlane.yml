@@ -24,7 +24,7 @@ jobs:
       uses: actions/cache@v4
       id: spm_packages-cache
       with:
-        path: .jabos/package_dependencies
+        path: __cd_pipeline_artifacts__/package_dependencies
         key: ${{ runner.os }}-packages-${{ hashFiles('**/Package.resolved') }}
         restore-keys:  ${{ runner.os }}-packages-
     - name: Install project tools
@@ -52,7 +52,7 @@ jobs:
         uses: actions/cache@v4
         id: spm_packages-cache
         with:
-          path: .jabos/package_dependencies
+          path: __cd_pipeline_artifacts__/package_dependencies
           key: ${{ runner.os }}-packages-${{ hashFiles('**/Package.resolved') }}
           restore-keys:  ${{ runner.os }}-packages-
       - name: Install project tools

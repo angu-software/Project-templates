@@ -41,7 +41,7 @@ class CDArtifactPaths
   private
 
   def build_dir
-    '.jabos'
+    '__cd_pipeline_artifacts__'
   end
 
   def join_paths(*paths)

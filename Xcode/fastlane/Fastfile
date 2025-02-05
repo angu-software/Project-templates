@@ -18,9 +18,15 @@
 require 'fileutils'
 require_relative 'lib/cd_steps'
 
-scheme = 'One Times One'
+# -- Configuration --
+
+scheme = 'Taja'
+
+dev_stage_test_destination = 'platform=iOS Simulator,name=iPad Air 11-inch (M2),OS=18.2'
 
 ENV['FASTLANE_XCODEBUILD_SETTINGS_TIMEOUT'] = '60'
+
+# -- Fastlane Specs --
 
 opt_out_usage
 default_platform(:ios)
@@ -28,21 +34,6 @@ default_platform(:ios)
 platform :ios do
   before_all do
     set_xcode_version
-  end
-
-  lane :dev_stage do
-    dev_build
-    dev_test
-  end
-
-  lane :acc_stage do
-    stage = CD_STAGES[:ACC]
-
-    build_for_testing(stage: stage,
-                      scheme: scheme)
-    test_without_building(stage: stage,
-                          scheme: scheme,
-                          test_plan: 'AcceptanceTests')
   end
 
   lane :app_store_screenshots do
@@ -54,6 +45,13 @@ platform :ios do
                               clear_previous_screenshots: true)
   end
 
+  # -- DEV Stage --
+
+  lane :dev_stage do
+    dev_build
+    dev_test
+  end
+
   lane :dev_build do
     build_for_testing(stage: CD_STAGES[:DEV],
                       scheme: scheme)
@@ -62,10 +60,34 @@ platform :ios do
   lane :dev_test do
     test_without_building(stage: CD_STAGES[:DEV],
                           scheme: scheme,
-                          test_plan: 'DevelopmentTests')
+                          test_plan: 'DevelopmentTests',
+                          destination: dev_stage_test_destination)
   end
 
   lane :dev_clean do
     clean_build_artifacts(stage: CD_STAGES[:DEV])
+  end
+
+  # -- ACC Stage --
+
+  lane :acc_stage do
+    acc_build
+    acc_test
+  end
+
+  lane :acc_build do
+    build_for_testing(stage: CD_STAGES[:ACC],
+                      scheme: scheme)
+  end
+
+  lane :acc_test do
+    test_without_building(stage: CD_STAGES[:ACC],
+                          scheme: scheme,
+                          test_plan: 'AcceptanceTests',
+                          destination: dev_stage_test_destination)
+  end
+
+  lane :acc_clean do
+    clean_build_artifacts(stage: CD_STAGES[:ACC])
   end
 end

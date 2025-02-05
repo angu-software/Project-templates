@@ -15,26 +15,18 @@ For _fastlane_ installation instructions, see [Installing _fastlane_](https://do
 
 ## iOS
 
-### ios dev_stage
-
-```sh
-[bundle exec] fastlane ios dev_stage
-```
-
-
-
-### ios acc_stage
-
-```sh
-[bundle exec] fastlane ios acc_stage
-```
-
-
-
 ### ios app_store_screenshots
 
 ```sh
 [bundle exec] fastlane ios app_store_screenshots
+```
+
+
+
+### ios dev_stage
+
+```sh
+[bundle exec] fastlane ios dev_stage
 ```
 
 
@@ -59,6 +51,38 @@ For _fastlane_ installation instructions, see [Installing _fastlane_](https://do
 
 ```sh
 [bundle exec] fastlane ios dev_clean
+```
+
+
+
+### ios acc_stage
+
+```sh
+[bundle exec] fastlane ios acc_stage
+```
+
+
+
+### ios acc_build
+
+```sh
+[bundle exec] fastlane ios acc_build
+```
+
+
+
+### ios acc_test
+
+```sh
+[bundle exec] fastlane ios acc_test
+```
+
+
+
+### ios acc_clean
+
+```sh
+[bundle exec] fastlane ios acc_clean
 ```
 
 

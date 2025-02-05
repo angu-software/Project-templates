@@ -65,5 +65,7 @@ fastlane/test_output
 __builds__
 .xcpipeline
 Tools/bin
-.jabos
+__cd_pipeline_artifacts__
 *.xcresult
+
+._*
