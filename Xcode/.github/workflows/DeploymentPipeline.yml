@@ -1,4 +1,4 @@
-name: 'Deployment Pipeline (Fastlane)'
+name: 'Deployment Pipeline'
 
 permissions:
   contents: write
