@@ -1,0 +1,26 @@
+name: 'Deployment Pipeline'
+
+permissions:
+  contents: write
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  xcode-template-tests:
+    name: Development Stage
+    runs-on: macos-15
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+    - name: Set up ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        working-directory: xcode
+        bundler-cache: true
+    - name: Run Tests
+      working-directory: xcode
+      run: bundle exec rspec fastlane
